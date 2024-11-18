@@ -1,0 +1,28 @@
+# Ingress resource for the applicationapiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alb-ingress-rules
+  annotations:
+    alb.ingress.kubernetes.io/subnets: subnet-0e851062469f02e82, subnet-03de77c8cfc136d48, subnet-04553e790d6d5f921
+    alb.ingress.kubernetes.io/load-balancer-name: "alb-ingress"
+    alb.ingress.kubernetes.io/ip-address-type: ipv4
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/healthy-threshold-count: '5'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '5'
+    alb.ingress.kubernetes.io/success-codes: '200'
+spec:
+  ingressClassName: ingres-class
+  rules:
+    - http:
+         paths:
+           - path: /courses
+             pathType: Prefix
+             backend:
+               service:
+                 name: go-web-app
+                 port:
+                   number: 80
