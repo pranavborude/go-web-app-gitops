@@ -1,4 +1,5 @@
 # Ingress resource for the applicationapiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: alb-ingress-rules
