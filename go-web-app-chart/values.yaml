@@ -8,7 +8,7 @@ image:
   # repository: pranav1562/go-web-app
   # pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "dev-e72844dcbf32372c5bb67306d4224196494fd87f"
+  tag: "dev-2fc36f4d9e08989beb7939675c11761c82d55518"
 
 # ingress:
 #   enabled: false
